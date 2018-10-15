@@ -1,0 +1,7 @@
+需要导入的jar包，也就是从zookeeper的压缩包解压出来的。
+jline-0.9.94.jar
+log4j-1.2.16.jar
+netty-3.10.5.Final.jar
+slf4j-api-1.6.1.jar
+slf4j-log4j12-1.6.1.jar
+zookeeper-3.4.10.jar
