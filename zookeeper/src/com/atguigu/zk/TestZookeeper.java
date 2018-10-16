@@ -9,6 +9,7 @@ import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,7 +41,7 @@ public class TestZookeeper {
 		});
 	}
 
-	//创建子节点
+	// 创建子节点
 	@Test
 	public void createNode() throws KeeperException, InterruptedException {
 		// 数据的增删改查
@@ -50,7 +51,7 @@ public class TestZookeeper {
 		System.out.println(nodeCreated);
 	}
 
-	//获取子节点
+	// 获取子节点
 	@Test
 	public void getChildren() throws KeeperException, InterruptedException {
 		List<String> children = zkClient.getChildren("/", true);
@@ -59,5 +60,12 @@ public class TestZookeeper {
 		}
 		// 延时阻塞
 		Thread.sleep(Long.MAX_VALUE);
+	}
+
+	// 判断znode节点是否存在
+	@Test
+	public void exist() throws KeeperException, InterruptedException {
+		Stat stat = zkClient.exists("/atguigu", false);
+		System.err.println(stat == null ? "not exist" : "exist");
 	}
 }
